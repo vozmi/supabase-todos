@@ -1,10 +1,17 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import {supabase} from '@/lib/supabase';
+import {Inter} from 'next/font/google';
+import Image from 'next/image';
+import styles from './page.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  supabase.from('todos').select()
+  .then((todos) => {
+    console.log(todos);
+  });
+  
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
